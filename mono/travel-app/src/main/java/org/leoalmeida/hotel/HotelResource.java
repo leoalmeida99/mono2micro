@@ -12,7 +12,7 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("hotel")
-public class HotelResources {
+public class HotelResource {
     
 
     @GET
@@ -27,6 +27,13 @@ public class HotelResources {
     @Produces(MediaType.APPLICATION_JSON)
     public Hotel findById(@QueryParam("id") long id) {
         return Hotel.findById(id);
+    }
+
+    @GET
+    @Path("findByTravelOrderId")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Hotel findByTravelOrderId(@QueryParam("travelOrderId") long travelOrderId) {
+        return Hotel.findByTravelOrderID(travelOrderId);
     }
 
     @POST
